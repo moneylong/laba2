@@ -1,0 +1,18 @@
+from datetime import datetime
+
+def calculate_age(birth_date):
+    today = datetime.today()
+    birth_date = datetime.strptime(birth_date, '%d/%m/%Y')
+    age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+    return age
+
+def main():
+    birth_date_str = input("Введите Вашу дату рождения в формате день/месяц/год (например, 01/01/2000): ")
+    try:
+        age = calculate_age(birth_date_str)
+        print(f"Ваш возраст: {age} лет")
+    except ValueError:
+        print("Некорректный формат даты")
+
+if __name__ == "__main__":
+    main()
