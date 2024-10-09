@@ -1,1 +1,80 @@
+def example():
+    print("Hello, World! (c) Kazantsev")
+example()
+
+
+def example():
+    return True
+example = example()
+print(type(example))
+print(example)
+
+
+example = None
+if example is None:
+    print("It's nothing")
+else:
+    print("It's something")
+
+
+def cat(name, color, age):
+    return {'name': name, 'color': color, 'age': age}
+my_cat = cat('Alise', 'Grey', 9)
+print(my_cat)
+
+
+def cat(name, color, age):
+    return {'name': name, 'color': color, 'age': age}
+my_cat = cat(color = 'Grey', age = 9, name = 'Alise')
+print(my_cat)
+
+
+
+def outer(out_param1, out_param2):
+    def inner(in_param1, in_param2):
+        return in_param1 + in_param2
+    return inner(out_param1, out_param2)
+print(outer(5,6))
+
+
+def example_args(*args):
+    print('Positional argument tuple:', args)
+example_args()
+example_args(1, 2, 4, 'argument')
+
+
+def outer(out_param):
+    def inner(in_param):
+        return f'Outer def have value: {in_param}'
+    return inner(out_param)
+print(outer('TEST'))
+
+
+def outer2(out_param):
+    def inner2():
+        return f'Outer def have value: {out_param}'
+    return inner2
+value = outer2('TEST')
+print(value())
+
+
+
+def book_list(books, func):
+    for book in books:
+        print(func(book))
+books = ['System Design','Python и DevOps','Git. Практическое руководство']
+book_list(books, lambda book: book.upper() + ' - прочитано')
+
+
+
+def my_generate(start=0, stop=5, step=1):
+    number = start
+    while number <= stop:
+        yield number
+        number += start
+ranger = my_generate(1,4)
+for value in ranger:
+    print(value)
+
+
 
